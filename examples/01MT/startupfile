@@ -1,0 +1,10 @@
+surveytype:      mt
+datafile:        mt_fwd.dat 
+burninsamples:   50000
+totalsamples:    500000
+numberoflayer:   2    10
+minthickness(m): 100
+zcoordinate(m):  1.0  50000.0 0.05
+resistivity:     0.1 1e4 0.05
+numberofbins:    300 400
+credinterval:    0.9

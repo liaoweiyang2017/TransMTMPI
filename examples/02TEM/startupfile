@@ -1,0 +1,10 @@
+surveytype:      tem
+datafile:        model1.dat 
+burninsamples:   5000
+totalsamples:    20000
+numberoflayer:   2    10
+zcoordinate(m):  1.0  150.0 0.05
+minthickness(m): 2.0
+resistivity:     0.1  1e4 0.05
+numberofbins:    400 400
+credinterval:    0.9
