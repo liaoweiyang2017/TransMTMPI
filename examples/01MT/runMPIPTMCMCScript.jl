@@ -90,7 +90,7 @@ end
 runParallelMPIPTMCMC()
 
 # run command in windows
-# mpiexec -np 6 julia .\runMPIPTMCMCScript.jl > runMPIInfo.txt
+# mpiexec -np 6 julia .\runMPIPTMCMCScript.jl > runMPIPTInfo.txt
 
 # run command in linux
-# mpirun -np 7 julia runMPIPTMCMCScript.jl > runMPIInfo.txt
+# mpirun -np 7 julia runMPIPTMCMCScript.jl > runMPIPTInfo.txt

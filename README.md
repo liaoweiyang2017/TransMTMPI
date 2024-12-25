@@ -26,28 +26,7 @@ TransMTMPI is free as a bird! It's distributed under the GNU General Public Lice
 
 First things first - you'll need Julia v1.0 or newer. Here's how to get it:
 
-#### 🪟 Windows Users
-1. Hop over to [Julia's download page](https://julialang.org/downloads/)
-2. Grab the Windows installer (.exe)
-3. Click-click-done! 
-
-#### 🐧 Linux Users
-Pick your favorite flavor:
-
-1. **The Quick Way (Recommended)**
-   ```bash
-   # Grab Julia and unleash it!
-   wget https://julialang-s3.julialang.org/bin/linux/x64/1.10/julia-1.10.1-linux-x64.tar.gz
-   tar zxvf julia-1.10.1-linux-x64.tar.gz
-   # Let your system know where to find Julia
-   export PATH="$PATH:/path/to/julia-1.10.1/bin"
-   ```
-
-2. **The Ubuntu Way**
-   ```bash
-   sudo apt update && sudo apt install julia
-   # Easy peasy! 🍋
-   ```
+To install julia in workstation or pc, you can refer to [`juliaup`](https://github.com/JuliaLang/juliaup)
 
 ### Step 2: MPI - The Secret Sauce 🌶️
 
@@ -72,20 +51,13 @@ sudo yum install openmpi openmpi-devel
 
 1. Grab TransMTMPI:
 ```bash
-git clone https://github.com/username/TransMTMPI.git
+git clone https://github.com/liaoweiyang2017/TransMTMPI.git
 cd TransMTMPI
 ```
 
-2. Fire up Julia and prep the environment:
+2. Load up the good stuff:
 ```julia
-using Pkg
-Pkg.activate(".")
-Pkg.instantiate()
-```
-
-3. Load up the good stuff:
-```julia
-]add MPI BenchmarkTools Distributions Statistics LinearAlgebra Printf Random SparseArrays Test
+] add MPI BenchmarkTools Distributions Statistics LinearAlgebra Printf Random SparseArrays Serialization Test
 ```
 
 ### 🚀 Time to Launch!
@@ -116,10 +88,10 @@ mpiexec -np 7 julia runMPIMCMCScript.jl > runMPIInfo.txt
 2. **Parallel Tempering MCMC with MPI Magic**:
 ```bash
 # Linux style
-mpirun -np 7 julia runMPIPTMCMCScript.jl > runMPIPTInfo.txt
+mpirun -np 6 julia runMPIPTMCMCScript.jl > runMPIPTInfo.txt
 
 # Windows flavor
-mpiexec -np 7 julia runMPIPTMCMCScript.jl > runMPIPTInfo.txt
+mpiexec -np 6 julia runMPIPTMCMCScript.jl > runMPIPTInfo.txt
 ```
 
 The `-np` flag is your power dial - set it based on your hardware's muscles! 💪
@@ -162,6 +134,17 @@ If TransMTMPI helps your research, we'd be thrilled if you cited us:
   pages={1--13},
   year={2022},
   publisher={IEEE}
+}
+@article{liao2024,
+  title = {Fast forward modeling of magnetotelluric data in complex continuous media using an extended Fourier DeepONet architecture},
+  author = { Weiyang Liao  and  Ronghua Peng  and  Xiangyun Hu  and  Yue Zhang  and  Wenlong Zhou  and  Xiaonian Fu  and  Haikun Lin },
+  journal = {GEOPHYSICS},
+  volume = {0},
+  number = {ja},
+  pages = {1-62},
+  year = {2024},
+  publisher={Society of Exploration Geophysicists}
+  doi = {10.1190/geo2023-0613.1}   
 }
 ```
 
