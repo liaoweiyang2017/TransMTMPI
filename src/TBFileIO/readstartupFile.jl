@@ -92,13 +92,13 @@ function readstartupFile(startupfile::String)
 
     # read observed data 读观测数据
     if surveyType == "tem"
-        println("TEM data is loading ...")
+        print("TEM data is loading ...\n")
         emData = readTEMData(datafile)
     elseif surveyType == "mt"
-        println("MT data is loading ...")
+        print("MT data is loading ...\n")
         emData = readMTData(datafile)
     elseif surveyType == "csem"
-        println("CSEM data is loading ...")
+        print("CSEM data is loading ...\n")
         emData = readCSEMData(datafile)
     end
 
