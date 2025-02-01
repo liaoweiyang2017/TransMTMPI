@@ -6,7 +6,6 @@
 push!(LOAD_PATH, pwd())
 push!(LOAD_PATH, joinpath(pwd(),"..","..","src"))
 using MPI 
-using Serialization 
 using TransdEM.TBUtility
 using TransdEM.TBStruct
 using TransdEM.TBFileIO
