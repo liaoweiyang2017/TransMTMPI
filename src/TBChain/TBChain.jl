@@ -321,7 +321,7 @@ end
 #-------------------------------------------------------------------------------
 include("acceptanceRatio.jl")
 include("runMCMC.jl")
-include("MPIUtilities.jl")
+# include("MPIUtilities.jl")
 include("parallelTempering.jl")
 
 end # module RJChains

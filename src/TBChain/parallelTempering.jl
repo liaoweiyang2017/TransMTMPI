@@ -242,8 +242,8 @@ function runMPITemperedMCMC(
                 tempLadder[tchain01] = tvalue2  # 所有进程都执行温度交换
                 tempLadder[tchain02] = tvalue1  
                 # Record swap in history (only in specific process)  
-                # 记录交换历史（仅在特定进程中）  
-                if rank == min(chain1, chain2)  
+                # 0号进程记录交换历史  
+                if rank == 0  
                     tempData.swapchain[1,k,iterNo] = tchain01  
                     tempData.swapchain[2,k,iterNo] = tchain02  
                     tempData.swapchain[3,k,iterNo] = 1  

@@ -187,9 +187,9 @@ end # initMCDataFit
 function initMCPrior() #初始化MC先验信息
 
     #
-    dtmp = 0.05 #这个参数是啥意思？
+    dtmp = 0.05 
     mclimits = MCPrior(100, 1000, 2, 10, 0.0, 5.0, 0.0, 1.0, 5.0, dtmp, dtmp,
-        400, 400, 0.9)  #MCPrior是啥意思
+        400, 400, 0.9)  
 
     return mclimits
 

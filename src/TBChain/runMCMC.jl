@@ -1,4 +1,4 @@
-export runMCMC #输出
+export runMCMC 
 export MCMCsampling!
 export resetChainModel!
 export updateChainModel!

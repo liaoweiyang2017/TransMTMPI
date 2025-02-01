@@ -1,6 +1,6 @@
 #------------------------------------------------------------------------------
 # script to perform MCMC temperature sampling in MPI parallel
-# (c) Vincentliao Sep. 12, 2023, revised on Dec. 25, 2024
+# (c) Vincentliao Sep. 12, 2023, revised on Feb. 1, 2025
 #------------------------------------------------------------------------------
 #
 push!(LOAD_PATH, pwd())
@@ -71,14 +71,16 @@ function runParallelMPIPTMCMC()
         # Gather results from all processes using collective communication  
         # Note: rank + 1 for Julia indexing  
         MPI.Barrier(comm)  
-        results = allGatherCustom(mcResult, nT, comm, rank + 1)
+        # Gather data to root (rank 0)
+        data = mcResult[rank+1]
+        results = MPI.gather(data, comm)
 
         # Process 0 handles output  
         if rank == 0  
             filestr = "mt"  
             sampleMPIPTStatistics(results, tempData, mclimits, filestr)  
             outputMPIPTchains(results, tempData, filestr)  
-            print("Parallel tempering MCMC completed.\n")
+            print("MPI Parallel tempering MCMC completed.\n")
             print("=======================================================================================\n")
         end  
     end  
@@ -93,4 +95,4 @@ runParallelMPIPTMCMC()
 # mpiexec -np 6 julia .\runMPIPTMCMCScript.jl > runMPIPTInfo.txt
 
 # run command in linux
-# mpirun -np 7 julia runMPIPTMCMCScript.jl > runMPIPTInfo.txt
+# mpirun -np 6 julia runMPIPTMCMCScript.jl > runMPIPTInfo.txt
