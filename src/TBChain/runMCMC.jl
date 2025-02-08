@@ -229,7 +229,7 @@ function MCMCsampling!(mcParamCurrent::T, #MC当前参数
         if mcParamProposed.inBound
 
             if mod(iterNo, cycleNumber) == 0  # 每1000次打印一次信息
-                println("Worker #$(rank): iterNo=$(iterNo), dataMisfit=$(mcDatafit.currMisfit)")
+                print("Worker #$(rank): iterNo=$(iterNo), dataMisfit=$(mcDatafit.currMisfit)\n")
             end
 
             # get the predicted data for the proposed model 
@@ -263,7 +263,8 @@ function MCMCsampling!(mcParamCurrent::T, #MC当前参数
         updateChainArray!(mcArray, iterNo, mcParamCurrent, mcstep, mcstatus, mcDatafit) #记录链数组
 
     end
-    println("Worker #$(rank): Accept Ratio:",k/totalsamples)
+    acceptRatio = k/totalsamples
+    print("Worker #$(rank): Accept Ratio: $(acceptRatio).\n")
     return mcArray
 
 end
